@@ -3,7 +3,7 @@ module Kaminari
     def entry_name( options = {} )
       count = options.fetch(:count, 1) # back compatibility where default was singular humanized model name
       downcase = options.fetch(:downcase, true) # back compatibility where default was to downcase entry_name
-      if model_name.respond_to?(:lookup_ancestors) || model_name.respond_to?(:i18n_scope)
+      if klass.respond_to?(:lookup_ancestors) || klass.respond_to?(:i18n_scope)
         entry_name = model_name.human(count: count)
       else
         entry_name = model_name.human

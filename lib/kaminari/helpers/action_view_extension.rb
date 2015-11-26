@@ -90,7 +90,7 @@ module Kaminari
     def page_entries_info(collection, options = {})
       total_count = collection.total_count == 1 ? 1 : 2
       default_entry_name = options[:entry_name]
-      default_entry_name = default_entry_name.pluralize unless default_entry_name.blank? || collection.total_count == 1
+      default_entry_name = default_entry_name.pluralize unless default_entry_name.blank? || total_count == 1
       entry_name = default_entry_name || collection.entry_name(options.merge(:count => total_count))
 
       if collection.total_pages < 2
